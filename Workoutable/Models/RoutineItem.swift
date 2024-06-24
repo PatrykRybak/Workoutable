@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class WorkoutRoutineItem {
+final class RoutineItem {
     var name: String
     
     init(name: String) {

@@ -46,7 +46,7 @@ struct WorkoutsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu{
-                            Button("Workout", systemImage: "dumbbell"){
+                            Button("Routines", systemImage: "dumbbell"){
                                 addWorkout()
                             }
                             Button("Sports", systemImage: "flag.checkered.2.crossed"){
