@@ -5,8 +5,6 @@
 //  Created by Patryk Rybak on 28/05/2024.
 //
 
-//Text("Item at \(WorkoutItem.date, format: Date.FormatStyle(date: .numeric, time: .standard))")
-
 import SwiftUI
 import SwiftData
 
@@ -27,11 +25,15 @@ struct WorkoutsView: View {
                 else{
                     List {
                         Section{
-                            ForEach(workouts) { wrkitm in
+                            ForEach(workouts) { workout in
                                 NavigationLink {
-                                    Text(wrkitm.title)
+                                    WorkoutSummaryView(title: workout.title, date: workout.date, time: workout.time)
                                 } label: {
-                                    Text(wrkitm.title)
+//                                    Text("\(workout.title) ; \(workout.date, format: Date.FormatStyle(date: .long))")
+                                    HStack {
+                                        Text(workout.title).bold()
+                                        Text("– \(workout.date, format: Date.FormatStyle(date: .long))")
+                                    }
                                 }
                             }.onDelete(perform: deleteItems)
                         }header: {

@@ -10,11 +10,10 @@ import SwiftData
 
 struct ReportSportDetailsView: View {
     @ObservedObject var sheetManager: ReportSportManager
-//    @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) private var modelContext
     @Query private var workouts: [WorkoutItem]
     @State private var currentDate = Date()
-    @State private var trainingDuration = "0"
+    @State private var trainingDuration = ""
     let sportName: String
     
     init(sportName: String, sheetManager: ReportSportManager) {
@@ -31,10 +30,12 @@ struct ReportSportDetailsView: View {
                         .keyboardType(.numberPad)
                 }
                 Section {
-                    Button("Save") {
-                        addWorkout()
-                        sheetManager.isSheetPresented.toggle()
-//                        presentationMode.wrappedValue.dismiss()
+                    Button(action: {
+                            addWorkout()
+                            sheetManager.isSheetPresented.toggle()
+                    }) {
+                        Text("Save")
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
             }
@@ -44,7 +45,8 @@ struct ReportSportDetailsView: View {
     
     private func addWorkout() {
         withAnimation {
-            let newItem = WorkoutItem(title: sportName, date: Date(), time: Int(trainingDuration)!)
+            let duration = Int(trainingDuration) ?? 0
+            let newItem = WorkoutItem(title: sportName, date: currentDate, time: duration)
             modelContext.insert(newItem)
         }
     }

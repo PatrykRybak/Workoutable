@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @EnvironmentObject var themeManager: ThemeManager
-    
     var body: some View {
         TabView{
             WorkoutsView()
@@ -24,7 +21,6 @@ struct ContentView: View {
                     Text("Settings")
                 }
         }.accentColor(.red)
-//        } .accentColor(themeManager.accentColor)
     }
 }
 

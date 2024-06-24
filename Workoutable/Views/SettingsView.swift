@@ -12,7 +12,6 @@ struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var workouts: [WorkoutItem]
     
-    @State public var showAddExerciseView = false
     @State private var isShowingDeletelert = false
     @State private var path = NavigationPath()
     
@@ -21,18 +20,19 @@ struct SettingsView: View {
             VStack{
                 List{
                     Section("Workouts"){
-//                        NavigationLink(destination: ExercisesListView().navigationTitle("All exercises"), label: {
-                            Label("Workout builder", systemImage: "figure.run.square.stack").accentColor(.accentColor)
-//                        })
-                        Label("Routine builder", systemImage: "figure.walk.circle").accentColor(.accentColor)
+                        NavigationLink(destination: WorkoutBuilderView()) {
+                            Label("Workout builder", systemImage: "figure.run.square.stack")
+                                .accentColor(.accentColor)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                         
-                        Button{
-                            showAddExerciseView.toggle()
-                        } label: {
-                            Label("Manage exercises", systemImage: "dumbbell").accentColor(.accentColor)
-                        }.sheet(isPresented: $showAddExerciseView, content: {
-//                            AddExerciseView(showAddExerciseView: $showAddExerciseView).presentationDetents([.fraction(0.3)]).presentationDragIndicator(.visible)
-                        })
+//                        Label("Routine builder", systemImage: "figure.walk.circle").accentColor(.accentColor)
+                        
+                        NavigationLink(destination: ManageExercisesView()) {
+                            Label("Manage exercises", systemImage: "dumbbell")
+                                .accentColor(.accentColor)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                 
                     }
                     Section("Preferences"){
@@ -46,11 +46,11 @@ struct SettingsView: View {
                             }
                         }
                         
-                        Button{
-                            
-                        } label: {
-                            Label("Accent color", systemImage: "tag").accentColor(.accentColor)
-                        }
+//                        Button{
+//                            
+//                        } label: {
+//                            Label("Accent color", systemImage: "tag").accentColor(.accentColor)
+//                        }
                     }
                 }
             }

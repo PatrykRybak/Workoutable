@@ -10,11 +10,9 @@ import SwiftData
 
 @main
 struct WorkoutableApp: App {
-    @StateObject private var themeManager = ThemeManager()
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             WorkoutItem.self,
             ExerciseItem.self
         ])
@@ -30,7 +28,6 @@ struct WorkoutableApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(themeManager)
         }
         .modelContainer(sharedModelContainer)
     }
