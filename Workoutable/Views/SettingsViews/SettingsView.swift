@@ -16,17 +16,15 @@ struct SettingsView: View {
     @State private var path = NavigationPath()
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack{
                 List{
                     Section("Workouts"){
-                        NavigationLink(destination: WorkoutBuilderView()) {
-                            Label("Workout builder", systemImage: "figure.run.square.stack")
+                        NavigationLink(destination: ManageRoutinesView()) {
+                            Label("Routine builder", systemImage: "figure.run.square.stack")
                                 .accentColor(.accentColor)
                         }
                         .buttonStyle(PlainButtonStyle())
-                        
-//                        Label("Routine builder", systemImage: "figure.walk.circle").accentColor(.accentColor)
                         
                         NavigationLink(destination: ManageExercisesView()) {
                             Label("Manage exercises", systemImage: "dumbbell")
@@ -45,12 +43,6 @@ struct SettingsView: View {
                                 deleteAllItems()
                             }
                         }
-                        
-//                        Button{
-//                            
-//                        } label: {
-//                            Label("Accent color", systemImage: "tag").accentColor(.accentColor)
-//                        }
                     }
                 }
             }

@@ -34,9 +34,9 @@ struct WorkoutSummaryView: View {
 //                    Text("Two")
 //                    Text("Three")
 //                } header: {
-//                    Text("Second Section Header")
+//                    Text("History:")
 //                } footer: {
-//                    Text("Tempora distinctio excepturi quasi distinctio est voluptates voluptate et dolor iste nisi voluptatem labore ipsum blanditiis sed sit suscipit est.")
+//                    Text("No data...")
 //                }
                 
             }

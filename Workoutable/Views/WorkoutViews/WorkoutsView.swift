@@ -29,7 +29,6 @@ struct WorkoutsView: View {
                                 NavigationLink {
                                     WorkoutSummaryView(title: workout.title, date: workout.date, time: workout.time)
                                 } label: {
-//                                    Text("\(workout.title) ; \(workout.date, format: Date.FormatStyle(date: .long))")
                                     HStack {
                                         Text(workout.title).bold()
                                         Text("– \(workout.date, format: Date.FormatStyle(date: .long))")

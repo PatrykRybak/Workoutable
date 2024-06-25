@@ -13,13 +13,20 @@ struct AddExercise: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var exercises: [ExerciseItem]
     @State private var exerciseName = ""
+    @State private var formIsValid = false
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Details")) {
-                    TextField("Exercise name", text: $exerciseName)
-                        .keyboardType(.default)
+                    TextField("Exercise name", text: $exerciseName).keyboardType(.default).onChange(of: exerciseName){
+                        if(exerciseName != "") {
+                            formIsValid = true
+                        }
+                        else {
+                            formIsValid = false
+                        }
+                    }
                 }
                 Section {
                     Button(action: {
@@ -30,7 +37,7 @@ struct AddExercise: View {
                     }) {
                         Text("Add")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }.disabled(!formIsValid)
                 }
             }
             .navigationTitle("Add exercise")

@@ -14,6 +14,7 @@ struct ReportSportDetailsView: View {
     @Query private var workouts: [WorkoutItem]
     @State private var currentDate = Date()
     @State private var trainingDuration = ""
+    @State private var formIsValid = false
     let sportName: String
     
     init(sportName: String, sheetManager: ReportSportManager) {
@@ -26,8 +27,14 @@ struct ReportSportDetailsView: View {
             Form {
                 Section(header: Text("Training Details")) {
                     DatePicker("Date", selection: $currentDate, in: ...Date(), displayedComponents: .date)
-                    TextField("Training Duration (minutes)", text: $trainingDuration)
-                        .keyboardType(.numberPad)
+                    TextField("Training Duration (minutes)", text: $trainingDuration).keyboardType(.numberPad).onChange(of: trainingDuration){
+                            if(trainingDuration != "") {
+                                formIsValid = true
+                            }
+                            else {
+                                formIsValid = false
+                            }
+                        }
                 }
                 Section {
                     Button(action: {
@@ -36,7 +43,7 @@ struct ReportSportDetailsView: View {
                     }) {
                         Text("Save")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }.disabled(!formIsValid)
                 }
             }
             .navigationTitle(sportName)
