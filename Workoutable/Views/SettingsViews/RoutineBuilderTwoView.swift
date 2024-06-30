@@ -8,57 +8,47 @@
 import SwiftUI
 
 struct RoutineBuilderTwoView: View {
+    @Binding var path: NavigationPath
+    @Environment(\.dismiss) var dismiss
     // Form data
-//    @State private var routineName = ""
-//    @State private var warmUp = false
-//    @State private var coolDown = false
-//    @State private var circuitTraining = false
-//    @State private var circuitRepetition = 2
     @State private var exercises: [String] = [
         "Push-ups", "Sit-ups", "Squats", "Lunges", "Burpees",
         "Plank", "Jumping Jacks", "Mountain Climbers", "Crunches", "Leg Raises"
     ]
     
-    
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             VStack{
-                if exercises.isEmpty {
-                    Text("Please select exercises")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                        .padding()
-                }
-                else{
-                    List {
-                        Section{
-                            ForEach(exercises.indices, id: \.self) { index in
-                                HStack {
-                                    Text(exercises[index])
-                                }
+                List {
+                    Section{
+                        ForEach(exercises.indices, id: \.self) { index in
+                            HStack {
+                                Text(exercises[index])
                             }
-                            .onDelete(perform: delete)
-                            .onMove(perform: move)
-                        }header: {
-                            Text("Your routine:")
                         }
+                        .onDelete(perform: delete)
+                        .onMove(perform: move)
+                    }header: {
+                        Text("Your routine:")
+                    }
+                    
+                    if !exercises.isEmpty {
                         Section{
-                            NavigationLink(destination: SettingsView()) {
-                                Button(action: {}) {
+//                            NavigationLink(destination: SettingsView()) {
+                                Button(action: {
+                                    path.removeLast(path.count)
+                                    print(path)
+                                }) {
                                     Text("Create routine").frame(maxWidth: .infinity, alignment: .center)
                                 }
-                            }
+//                            }
                         }
                     }
+                    
                 }
             }
-            .navigationTitle("Pick exercises")
+            .navigationTitle("Exercise picker")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("add", systemImage: "plus"){
-                        clearForm()
-                    }
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Discard", systemImage: "trash"){
                         clearForm()
@@ -82,5 +72,5 @@ struct RoutineBuilderTwoView: View {
 }
 
 #Preview {
-    RoutineBuilderTwoView()
+    RoutineBuilderTwoView(path: .constant(NavigationPath()))
 }

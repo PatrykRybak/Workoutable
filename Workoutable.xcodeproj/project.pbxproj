@@ -20,10 +20,10 @@
 		5E3CB4A22C07213200C0D2BF /* RoutineBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CB4A12C07213200C0D2BF /* RoutineBuilderView.swift */; };
 		5E3CB4A42C07593800C0D2BF /* AddExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CB4A32C07593800C0D2BF /* AddExerciseManager.swift */; };
 		5E3CB4A82C075C5100C0D2BF /* RoutineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CB4A72C075C5100C0D2BF /* RoutineItem.swift */; };
+		5E8B4C9E2C314B04007CE65B /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B4C9D2C314B04007CE65B /* PreferencesView.swift */; };
 		5E9AC1CF2C2998870073F777 /* ReportRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AC1CE2C2998870073F777 /* ReportRoutineView.swift */; };
 		5E9AC1D32C2999590073F777 /* ReportRoutineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AC1D22C2999590073F777 /* ReportRoutineManager.swift */; };
 		5E9AC1D52C299AF50073F777 /* ManageRoutinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AC1D42C299AF50073F777 /* ManageRoutinesView.swift */; };
-		5E9AC1D72C2AD4870073F777 /* RoutineBuilderTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AC1D62C2AD4870073F777 /* RoutineBuilderTwoView.swift */; };
 		5EDAAA5C2C0529550028522B /* WorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDAAA5B2C0529550028522B /* WorkoutItem.swift */; };
 		5EF367C52C04C75C00633F83 /* WorkoutableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF367C42C04C75C00633F83 /* WorkoutableApp.swift */; };
 		5EF367C72C04C75C00633F83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF367C62C04C75C00633F83 /* ContentView.swift */; };
@@ -45,10 +45,10 @@
 		5E3CB4A12C07213200C0D2BF /* RoutineBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderView.swift; sourceTree = "<group>"; };
 		5E3CB4A32C07593800C0D2BF /* AddExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseManager.swift; sourceTree = "<group>"; };
 		5E3CB4A72C075C5100C0D2BF /* RoutineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineItem.swift; sourceTree = "<group>"; };
+		5E8B4C9D2C314B04007CE65B /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		5E9AC1CE2C2998870073F777 /* ReportRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRoutineView.swift; sourceTree = "<group>"; };
 		5E9AC1D22C2999590073F777 /* ReportRoutineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRoutineManager.swift; sourceTree = "<group>"; };
 		5E9AC1D42C299AF50073F777 /* ManageRoutinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageRoutinesView.swift; sourceTree = "<group>"; };
-		5E9AC1D62C2AD4870073F777 /* RoutineBuilderTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderTwoView.swift; sourceTree = "<group>"; };
 		5EDAAA5B2C0529550028522B /* WorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutItem.swift; sourceTree = "<group>"; };
 		5EF367C12C04C75C00633F83 /* Workoutable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workoutable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF367C42C04C75C00633F83 /* WorkoutableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutableApp.swift; sourceTree = "<group>"; };
@@ -123,10 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				5E3CB48D2C05BA1D00C0D2BF /* SettingsView.swift */,
+				5E8B4C9D2C314B04007CE65B /* PreferencesView.swift */,
 				5E3CB49D2C0720F400C0D2BF /* ManageExercisesView.swift */,
 				5E9AC1D42C299AF50073F777 /* ManageRoutinesView.swift */,
 				5E3CB4A12C07213200C0D2BF /* RoutineBuilderView.swift */,
-				5E9AC1D62C2AD4870073F777 /* RoutineBuilderTwoView.swift */,
 			);
 			path = SettingsViews;
 			sourceTree = "<group>";
@@ -252,10 +252,10 @@
 				5E26EAC42C08B05000ED1441 /* WorkoutSummaryView.swift in Sources */,
 				5EF367C52C04C75C00633F83 /* WorkoutableApp.swift in Sources */,
 				5E3CB4982C05DFF400C0D2BF /* ReportSportDetailsView.swift in Sources */,
+				5E8B4C9E2C314B04007CE65B /* PreferencesView.swift in Sources */,
 				5E3CB49A2C05E00A00C0D2BF /* AddExercise.swift in Sources */,
 				5E3CB48C2C05BA0500C0D2BF /* WorkoutsView.swift in Sources */,
 				5E9AC1D52C299AF50073F777 /* ManageRoutinesView.swift in Sources */,
-				5E9AC1D72C2AD4870073F777 /* RoutineBuilderTwoView.swift in Sources */,
 				5E3CB4902C05BD4400C0D2BF /* StruggleView.swift in Sources */,
 				5E9AC1CF2C2998870073F777 /* ReportRoutineView.swift in Sources */,
 				5E3CB4A42C07593800C0D2BF /* AddExerciseManager.swift in Sources */,

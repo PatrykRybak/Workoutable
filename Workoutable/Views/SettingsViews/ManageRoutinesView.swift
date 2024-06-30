@@ -11,9 +11,10 @@ import SwiftData
 struct ManageRoutinesView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var routines: [RoutineItem]
+    @State private var path = NavigationPath()
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             VStack{
                 if routines.isEmpty {
                     Text("No routines")
@@ -36,7 +37,7 @@ struct ManageRoutinesView: View {
             .navigationTitle("Routines")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: RoutineBuilderView()) {
+                    NavigationLink(destination: RoutineBuilderView(path: $path)) {
                         Label("Create exercise", systemImage: "plus")
                     }
                 }
@@ -57,4 +58,3 @@ struct ManageRoutinesView: View {
     ManageRoutinesView()
         .modelContainer(for: ExerciseItem.self, inMemory: true)
 }
-    

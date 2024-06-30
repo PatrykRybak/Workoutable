@@ -18,7 +18,7 @@ struct ContentView: View {
             SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
-                    Text("Settings")
+                    Text("Preferences")
                 }
         }.accentColor(.red)
     }

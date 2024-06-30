@@ -33,7 +33,13 @@ struct SettingsView: View {
                         .buttonStyle(PlainButtonStyle())
                 
                     }
-                    Section("Preferences"){
+                    Section("Settings"){
+                        NavigationLink(destination: PreferencesView()) {
+                            Label("Preferences", systemImage: "gear")
+                                .accentColor(.accentColor)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
                         Button{
                             isShowingDeletelert = true
                         } label: {
@@ -46,7 +52,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("Preferences")
         }
     }
     

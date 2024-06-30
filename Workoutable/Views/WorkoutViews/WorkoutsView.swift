@@ -9,9 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct WorkoutsView: View {
-    @StateObject var sheetManager = ReportSportManager()
+    @StateObject var sportSheetManager = ReportSportManager()
+    @StateObject var routineSheetManager = ReportRoutineManager()
     @Environment(\.modelContext) private var modelContext
     @Query private var workouts: [WorkoutItem]
+    @State private var showStruggleView = false
 
     var body: some View {
         NavigationSplitView {
@@ -46,10 +48,11 @@ struct WorkoutsView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu{
                             Button("Routines", systemImage: "dumbbell"){
-                                addWorkout()
+//                                addWorkout()
+                                routineSheetManager.isSheetPresented.toggle()
                             }
                             Button("Sports", systemImage: "flag.checkered.2.crossed"){
-                                sheetManager.isSheetPresented.toggle()
+                                sportSheetManager.isSheetPresented.toggle()
                             }
                     } label: {
                         Label("Workout", systemImage: "plus").accentColor(.red)
@@ -58,9 +61,19 @@ struct WorkoutsView: View {
             }
         } detail: {
             Text("Workouts")
-        }.sheet(isPresented: $sheetManager.isSheetPresented, content: {
-            ReportSportView(sheetManager: sheetManager).presentationDetents([.medium])
+        }
+        .sheet(isPresented: $sportSheetManager.isSheetPresented, content: {
+            ReportSportView(sheetManager: sportSheetManager).presentationDetents([.medium])
         })
+        .sheet(isPresented: $routineSheetManager.isSheetPresented) {
+            ReportRoutineView(sheetManager: routineSheetManager, showStruggleView: $showStruggleView)
+                .presentationDetents([.medium])
+        }
+        .navigationDestination(for: String.self) { destination in
+            if destination == "StruggleView" {
+                StruggleView()
+            }
+        }
     }
 
     private func addWorkout() {
